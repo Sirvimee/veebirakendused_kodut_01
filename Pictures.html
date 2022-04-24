@@ -1,0 +1,163 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Using the Tabs Widget</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> 
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css">
+	
+    <style>
+		
+		#VahetaTausta {
+			margin-left: auto;
+			margin-right: auto;
+      	}
+		
+		#VahetaS6idukit {
+			margin-left: auto;
+			margin-right: auto;
+      	}
+		
+		.parent {
+			position: relative;
+			top: 0;
+			left: 0;
+			margin-left: auto;
+			margin-right: auto;
+			width: 350px;
+			height: 527px;
+			display: flex;
+			align-items: center;
+		}
+		/*suvi*/
+		.image1 { 
+  			position: absolute;
+  			top: 0;
+  			left: 0;
+		}
+		/*talv*/
+		.image1a {
+			position: absolute;
+  			top: 0;
+  			left: 0;
+		}
+		/*ratas*/
+		.image2 {
+  			position: absolute;
+  			top: 340px;
+  			left: 130px;
+			opacity: 0%;
+		}
+		/*auto*/
+		.image2a {
+  			position: absolute;
+  			top: 330px;
+  			left: 55px;
+			opacity: 100%;
+		}
+		
+		.nupud {
+			position: relative;
+			top: 10px;
+			margin-left: auto;
+			margin-right: auto;
+			width: 300px;
+			display: flex;
+			text-align: center;
+		}
+
+    </style>
+	
+    <script type="text/javascript">
+		
+		$(document).ready(function(){
+			//taustade vahetamine
+  			$("#VahetaTausta_suvi").click(function(){
+    			$("#suvi").fadeIn();
+    			$("#talv").fadeOut("slow");
+  			});
+		
+  			$("#VahetaTausta_talv").click(function(){
+    			$("#talv").fadeIn();
+    			$("#suvi").fadeOut("slow");
+  			});
+		
+			//sõiduriista vahetamine
+			//autoks
+			$("#VahetaS6idukit_auto").click(function(){
+				$("#ratas").animate({
+					top: '350px',
+					left: '150px',
+					opacity: '0',
+					height: '0px',
+					width: '0px'
+				});
+				
+				$("#auto").animate({
+					top: '330px',
+					left: '55px',
+					height: '197px',
+					width: '244px'
+				});
+				setTimeout(
+  					function(){
+    					$("#auto").fadeIn('slow').animate({opacity: '100'})
+  					}, 500);
+			});
+		
+			//rattaks
+			$("#VahetaS6idukit_ratas").click(function(){
+				$("#auto").animate({
+					top: '350px',
+					left: '150px',
+					opacity: '0',
+					height: '0px',
+					width: '0px'
+				});
+				
+				$("#ratas").animate({
+					top: '340px',
+					left: '130px',
+					height: '173px',
+					width: '92px'
+				});
+				setTimeout(
+  					function(){
+    					$("#ratas").fadeIn('8000').animate({ opacity: '100%'})
+  						}, 500);
+			});
+		});
+    </script>
+</head>
+<body>
+	
+	<div class="parent">
+		<img id="suvi" class="image1" src="pildid/summer.jpg" alt=""/>
+		<img id="talv" class="image1a" src="pildid/winter.jpg" alt=""/>
+		<img id="ratas" class="image2" src="pildid/ratas.png" alt=""/>
+		<img id="auto" class="image2a" src="pildid/auto.png" alt=""/>
+	</div>
+	
+   <div class="nupud">
+      <input type="button"
+             id="VahetaTausta_suvi"
+             value="Suve taust" />
+
+      <input type="button"
+             id="VahetaTausta_talv"
+             value="Talve taust" />
+	   
+	   <input type="button"
+             id="VahetaS6idukit_auto"
+             value="Vali auto" />
+	   
+	   <input type="button"
+             id="VahetaS6idukit_ratas"
+             value="Vali ratas" />
+   </div>
+
+</body>
+</html>
+
